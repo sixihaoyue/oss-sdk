@@ -1,0 +1,33 @@
+{
+    "name": "oss/sdk",
+    "description": "Install a new laravel-admin tenancy",
+    "type": "library",
+    "keywords": ["laravel-admin", "extension"],
+    "homepage": "https://github.com/laravel-admin-ext/multitenancy",
+    "license": "MIT",
+    "version": "2.1.7",
+    "authors": [
+        {
+            "name": "sixihaoyue",
+            "email": "sixihaoyue@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "OSS\\SDK\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OSS\\SDK\\ServiceProvider"
+            ]
+        }
+    }
+}
