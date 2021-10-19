@@ -50,6 +50,6 @@ class OSSUser
      */
     public function hasRoles($role)
     {
-      return in_array($role, $this->_userData['roles'] ?? []);
+      return in_array($role, $this->_userData ?? []);
     }
 }
