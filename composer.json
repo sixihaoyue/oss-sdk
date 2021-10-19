@@ -1,5 +1,5 @@
 {
-    "name": "sixihaoyue/oss-sdk",
+    "name": "oss/sdk",
     "description": "Install a new laravel-admin tenancy",
     "type": "library",
     "keywords": ["laravel-admin", "extension"],
