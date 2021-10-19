@@ -1,11 +1,11 @@
 {
-    "name": "sixihaoyue/oss-sdk",
+    "name": "sixihaoyue/oss-sdk",https://github.com/sixihaoyue/oss-sdk/blob/main/composer.json
     "description": "Install a new laravel-admin tenancy",
     "type": "library",
     "keywords": ["laravel-admin", "extension"],
     "homepage": "https://github.com/laravel-admin-ext/multitenancy",
     "license": "MIT",
-    "version": "2.1.7",
+    "version": "3.0.0",
     "authors": [
         {
             "name": "sixihaoyue",
