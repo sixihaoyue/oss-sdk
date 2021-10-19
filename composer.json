@@ -1,5 +1,5 @@
 {
-    "name": "sixihaoyue/oss-sdk",https://github.com/sixihaoyue/oss-sdk/blob/main/composer.json
+    "name": "sixihaoyue/oss-sdk",
     "description": "Install a new laravel-admin tenancy",
     "type": "library",
     "keywords": ["laravel-admin", "extension"],
