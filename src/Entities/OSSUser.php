@@ -21,6 +21,14 @@ class OSSUser
         $this->_userData = array_values($info['app_data'])[0] ?? [];
     }
 
+    public function __get($property)
+    {
+        if (isset($this->_info[$property])) {
+            return $this->_info[$property];
+        }
+        return null;
+    }
+
     /* 鉴权 */
     public function access($level = 0)
     {
