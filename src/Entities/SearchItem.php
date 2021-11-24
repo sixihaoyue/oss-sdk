@@ -32,6 +32,11 @@ class SearchItem
         $this->item['url'] = $url;
     }
 
+    public function setType($type)
+    {
+        $this->item['type'] = $type;
+    }
+
     public function setData($data)
     {
         $this->item['data'] = $data;
