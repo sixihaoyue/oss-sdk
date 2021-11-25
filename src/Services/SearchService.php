@@ -12,6 +12,8 @@ class SearchService
     protected $batchSize = 100;
     protected $saveItems = [];
     protected $deleteItems = [];
+    protected $saveCount = 0;
+    protected $deleteCount = 0;
 
     protected $commitItems = [
       'save' => [],
@@ -34,7 +36,7 @@ class SearchService
     {
         $this->saveItems[] = $item->toArray();
         if (count($this->saveItems) > $this->batchSize) {
-            $this->_transform('save');
+            $this->commit();
         }
     }
 
@@ -42,7 +44,7 @@ class SearchService
     {
         $this->deleteItems[] = $item->toArray();
         if (count($this->deleteItems) > $this->batchSize) {
-            $this->_transform('delete');
+            $this->commit();
         }
     }
 
@@ -50,22 +52,25 @@ class SearchService
     {
         $this->_transform('save');
         $this->_transform('delete');
-        $saveCount = 0;
-        $deleteCount = 0;
         $client = app(Client::class);
         try {
             foreach ($this->commitItems['save'] as $items) {
-               $saveCount += $client->post('app/search/save', ['items' => json_encode($items)]);
+               $this->saveCount += $client->post('app/search/save', ['items' => json_encode($items)]);
             }
             foreach ($this->commitItems['delete'] as $items) {
-                $deleteCount += $client->post('app/search/delete', ['items' => json_encode($items)]);
+                $this->deleteCount += $client->post('app/search/delete', ['items' => json_encode($items)]);
             }
         } catch (Exception $e) {
             logger($e);
         }
+        // 清除内存
+        $this->commitItems = [
+          'save' => [],
+          'delete' => [],
+        ];
         return [
-          'saveCount' => $saveCount,
-          'deleteCount' => $deleteCount,
+          'saveCount' => $this->saveCount,
+          'deleteCount' => $this->deleteCount,
         ];
     }
 
